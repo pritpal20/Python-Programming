@@ -54,7 +54,7 @@ class HashMap(object):
 		return key_arr
 
 
-Player = HashMap(100)
+Player = HashMap(10)
 Player.insert("Pritpal",35)
 Player.insert("Pritpal",34)
 Player.insert("Andy",34)
@@ -65,5 +65,7 @@ print(Player.find("Andaa"))
 
 print(Player.keys())
 
+
+print(Player.data)
 
 
