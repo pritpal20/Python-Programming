@@ -5,6 +5,10 @@ class node(object):
 		self.data = data
 		self.next = None
 
+	def __repr__(self):
+
+		return f"{self.data}->{self.next}"
+
 
 class list(object):
 
@@ -12,6 +16,10 @@ class list(object):
 		self.head = node(data)
 		self.tail = self.head
 		self.length = 1
+
+	def __repr__(self):
+
+		return f'\n[head = {self.head.data},length = {self.length}] \n{self.head.data}->{self.head.next} \n[tail = {self.tail}] '
 
 	def append_old(self,data):
 		current = self.head
@@ -237,22 +245,61 @@ class list(object):
 	def get_head_ref(self):
 		return self.head
 
+	# 1->2->3->4->NULL
+	# N = 2 
+	# 1->2->4>NULL
+	def removeNthElement(self,N):
+
+		ptr_temp = self.head
+		ptr_Nth = self.head
+
+		index = 0 
+		prev = None
+		while(ptr_temp != None):
+
+			if index == N:
+				break;
+			ptr_temp = ptr_temp.next 
+
+			index+=1
+
+		while(ptr_temp != None):
+
+			prev = ptr_Nth
+			ptr_Nth = ptr_Nth.next
+			ptr_temp = ptr_temp.next
+
+		# print(prev)
+		# print(ptr_Nth)
+		self.length-=1
+		if prev != None:
+			prev.next = ptr_Nth.next
+			return ptr_Nth.data
+		else:
+			self.head = self.head.next 
+			return None
+
+
+
+
 
 
 
 def main(argv):
 
-	mylist = list(0)
+	mylist = list()
 
-	for i in range(1,11):
+	for i in range(1,6):
 		mylist.append(i)
 
-	mylist.print()
-	# print(mylist.tail.data)
-	# print(mylist.__dict__)
-	# mylist.erase(0)
-	mylist.insert_new(11,99)
-	print(mylist.len())
+	# mylist.print()
+	# print("lenght of list",mylist.len())
+
+	print(mylist)
+
+	print(mylist.removeNthElement(6))
+	# mylist.print()
+	print(mylist)
 
 
 

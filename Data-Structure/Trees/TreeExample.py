@@ -33,6 +33,11 @@ class tree:
 						return self
 					currentNode = currentNode.right
 
+	def insert_new(self.data):
+		pass
+
+
+
 	def search(self,value):
 		pass
 
@@ -47,5 +52,6 @@ bst1.insert(15)
 bst1.insert(130)
 bst1.insert(100)
 bst1.insert(6)
+
 
 print(bst1.root.right.right.left.__dict__)
