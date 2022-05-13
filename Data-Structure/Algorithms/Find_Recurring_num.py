@@ -20,7 +20,7 @@ def find_first_recurring_num(A):
 			return item
 	return
 
-A1 = [2,3,45,8,3,8,7]
+A1 = [2,3,3,8,2,8,7]
 
 
 print(find_first_recurring_num(A1))

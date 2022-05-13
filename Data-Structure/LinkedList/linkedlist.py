@@ -5,10 +5,6 @@ class node(object):
 		self.data = data
 		self.next = None
 
-	def __repr__(self):
-
-		return f"{self.data}->{self.next}"
-
 
 class list(object):
 
@@ -16,10 +12,6 @@ class list(object):
 		self.head = node(data)
 		self.tail = self.head
 		self.length = 1
-
-	def __repr__(self):
-
-		return f'\n[head = {self.head.data},length = {self.length}] \n{self.head.data}->{self.head.next} \n[tail = {self.tail}] '
 
 	def append_old(self,data):
 		current = self.head
@@ -245,63 +237,104 @@ class list(object):
 	def get_head_ref(self):
 		return self.head
 
-	# 1->2->3->4->NULL
-	# N = 2 
-	# 1->2->4>NULL
-	def removeNthElement(self,N):
+	def removeNthElement(self,index):
 
-		ptr_temp = self.head
-		ptr_Nth = self.head
+		ptr_temp = self.head 
+		ptr_nth = self.head
 
-		index = 0 
-		prev = None
-		while(ptr_temp != None):
+		i = 0
+		while(i < index):
 
-			if index == N:
-				break;
-			ptr_temp = ptr_temp.next 
-
-			index+=1
-
-		while(ptr_temp != None):
-
-			prev = ptr_Nth
-			ptr_Nth = ptr_Nth.next
 			ptr_temp = ptr_temp.next
+			i+=1
 
-		# print(prev)
-		# print(ptr_Nth)
-		self.length-=1
-		if prev != None:
-			prev.next = ptr_Nth.next
-			return ptr_Nth.data
-		else:
-			self.head = self.head.next 
+		if ptr_temp == None:
 			return None
 
+		prev = None
+
+		print('ptr_temp.data',ptr_temp.data)
+		while(ptr_temp != None):
+			prev = ptr_nth
+			ptr_temp = ptr_temp.next
+			ptr_nth = ptr_nth.next
+
+		if prev == self.head :
+			print("Yes")
+			self.head = self.head.next
+		else:
+			prev.next = ptr_nth.next
+
+		print(ptr_nth.data)
+		return ptr_nth
 
 
 
+def AddtoDict(D_element,Key,Value):
 
+	try :
+		D_element[Key]  = Value
+	except KeyError:
+		D_element[Key] = Value
+
+	return D_element
+
+
+def GetElement(D_element,Key):
+	try :
+		if D_element[Key]  == True:
+			return True
+		
+	except KeyError:
+		return False
+
+	return D_element
 
 
 def main(argv):
 
-	mylist = list()
+	mylist = list(0)
 
-	for i in range(1,6):
+	for i in range(1,4):
 		mylist.append(i)
 
-	# mylist.print()
-	# print("lenght of list",mylist.len())
+	mylist.print()
+	# print(mylist.tail.data)
+	# print(mylist.__dict__)
+	# mylist.erase(0)
+	# mylist.insert_new(13,99)
+	# print(mylist.len())
 
-	print(mylist)
+	# mylist.tail.next = mylist.head
 
-	print(mylist.removeNthElement(6))
-	# mylist.print()
-	print(mylist)
+	# current = mylist.head
+
+	# my_dict = {}
+	# while(current != None):
 
 
+	# 	print("current.data",id(current))
+	# 	AddtoDict(my_dict,id(current),True)
+
+	# 	if current.next != None:
+	# 		if GetElement(my_dict,id(current.next)):
+	# 			print('List is cirular')
+	# 			# exit(0)
+	# 			break
+
+	# 	current = current.next
+
+
+	# print(my_dict)
+	# print('List is not circular')
+
+
+
+	print(mylist.removeNthElement(4).data)
+	mylist.print()
+
+
+		
 
 
 if __name__ == '__main__':
