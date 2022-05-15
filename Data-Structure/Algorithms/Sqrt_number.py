@@ -3,7 +3,7 @@
 def sqrt(num:int):
 
 
-    iterations = 100
+    iterations = 7
     x = num
     i = 0
     while(True ):
@@ -17,8 +17,6 @@ def sqrt(num:int):
         i+=1
     print(num)
     return int(num)
-
-
 
 
 print(sqrt(4))

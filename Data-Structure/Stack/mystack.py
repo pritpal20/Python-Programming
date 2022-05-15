@@ -50,9 +50,9 @@ class MyStack:
 
 stack1 = MyStack()
 
-stack1.push('A')
-stack1.push('B')
-stack1.push('C')
+stack1.push('{')
+stack1.push('}')
+stack1.push('[')
 
 print(stack1.__dict__)
 
