@@ -140,13 +140,14 @@ class list(object):
 
 		# print('head',end='\n')
 		# print('head-->',end=' ')
+		print("[",end='')
 		while current.next != None:
 			# temp.append(current.data)
-			print(f'{current.data}',end='-->')
+			print(f'{current.data}',end=',')
 			current = current.next
 
 		# temp.append(current.data)
-		print(f'{current.data}',end='-->NULL\n')
+		print(f'{current.data}',end=']\n')
 		# return temp
 
 	def len(self):
@@ -330,7 +331,7 @@ def main(argv):
 
 
 
-	print(mylist.removeNthElement(4).data)
+	# print(mylist.removeNthElement(4).data)
 	mylist.print()
 
 

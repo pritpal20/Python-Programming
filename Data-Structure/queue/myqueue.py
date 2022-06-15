@@ -1,4 +1,3 @@
-
 class node:
 	def __init__(self,data=None):
 		self.data = data
@@ -6,10 +5,13 @@ class node:
 
 
 class MyQueue:
+	'''
+	Queue class
+	'''
 
 	def __init__(self):
-		self.first = None 
-		self.last = None 
+		self.first = None
+		self.last = None
 		self.length = 0
 
 
@@ -42,7 +44,6 @@ class MyQueue:
 
 		self.length-=1
 		return temp.data
-
 
 
 

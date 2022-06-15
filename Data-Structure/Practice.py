@@ -1,10 +1,20 @@
 
 
-def oddNumbers(l,r):
+def isValid(s:str) -> bool :
 
-	for i in range(l,r+1):
-		print(i)
+	stack = ['N']
 
+	dict_val = {']':'[','}':'{',')':'('}
+	for i in s :
 
+		if i in dict_val.keys():
+			if stack.pop() != dict_val[i]:
+				return False
+		else:
+			stack.append(i)
 
-oddNumbers(2,10)
+	if len(stack) == 1:
+		return True
+
+print(isValid("(])"))
+

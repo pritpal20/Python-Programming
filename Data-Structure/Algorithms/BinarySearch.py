@@ -42,7 +42,7 @@ A = [-1,0,3,4,5,7,9,10,100]
 
 Soln = Solution()
 
-print(Soln.search(A,200))
+print(Soln.search(A,-1))
 
 
 
